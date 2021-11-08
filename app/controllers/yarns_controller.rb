@@ -20,4 +20,22 @@ class YarnsController < ApplicationController
         render json: @yarn
     end
 
+    def update
+        @yarn = Yarn.find(params[:id])
+        @yarn.update(
+            color: params[:color],
+            fiber: params[:fiber],
+            price: params[:price],
+            weight: params[:weight] 
+        )
+        render json: @yarn
+    end
+
+    def destroy
+        @yarns = Yarn.all
+        @yarn = Yarn.find(params[:id])
+        @yarn.destroy
+        render json: @yarns
+    end
+
 end
