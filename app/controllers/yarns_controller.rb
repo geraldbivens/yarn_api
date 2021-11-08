@@ -5,6 +5,11 @@ class YarnsController < ApplicationController
         render json: @yarns
     end
 
+    def show
+        @yarn = Yarn.find(params[:id])
+        render json: @yarn
+    end
+
     def create
         @yarn = Yarn.create(
             color: params[:color],
